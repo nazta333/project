@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>TravelGo — турагентство</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+    <!-- Шапка -->
+    <header class="topbar">
+        <div class="row">
+            <div class="logo"><span class="dot"></span>TravelGo</div>
+            <div class="avatar-mini">👤</div>
+        </div>
+        <p>Туры, билеты и отели — всё в одном месте</p>
+    </header>
+
+    <div class="screens">
+
+        <!-- ЭКРАН: ГЛАВНАЯ -->
+        <section id="scr-home" class="screen active">
+            <div class="search">
+                <span>🔍</span>
+                <input type="text" placeholder="Куда летим? Город или отель">
+                <button>✈️</button>
+            </div>
+
+            <div class="chips">
+                <div class="chip active">Всё</div>
+                <div class="chip">Туры</div>
+                <div class="chip">Авиабилеты</div>
+                <div class="chip">Отели</div>
+            </div>
+
+            <h3 class="section">Популярные направления</h3>
+            <div class="grid">
+                <div class="card">
+                    <!-- Фото: Стамбул -->
+                    <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=600&q=80" alt="Стамбул">
+                    <div class="overlay"><div class="name">Стамбул</div><div class="price">от 25 900 ₽</div></div>
+                </div>
+                <div class="card">
+                    <!-- Фото: Сочи -->
+                    <img src="https://images.unsplash.com/photo-1567013076546-f5199e9f18bf?w=600&q=80" alt="Сочи">
+                    <div class="overlay"><div class="name">Сочи</div><div class="price">от 18 500 ₽</div></div>
+                </div>
+                <div class="card">
+                    <!-- Фото: Дубай -->
+                    <img src="https://images.unsplash.com/photo-1512453979798-5ea266258227?w=600&q=80" alt="Дубай">
+                    <div class="overlay"><div class="name">Дубай</div><div class="price">от 49 800 ₽</div></div>
+                </div>
+                <div class="card">
+                    <!-- Фото: Санторини -->
+                    <img src="https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?w=600&q=80" alt="Санторини">
+                    <div class="overlay"><div class="name">Санторини</div><div class="price">от 62 000 ₽</div></div>
+                </div>
+            </div>
+
+            <div class="banner">
+                <div><b>Скидка 15%</b><span>на туры в Турцию до конца месяца</span></div>
+                <button class="go" onclick="go('book')">Смотреть</button>
+            </div>
+        </section>
+
+        <!-- ЭКРАН: БРОНИРОВАНИЕ -->
+        <section id="scr-book" class="screen">
+            <h3 class="section">Оформление тура</h3>
+            <div class="booking-head">
+                <!-- Фото: Стамбул -->
+                <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=300&q=80" alt="Стамбул">
+                <div>
+                    <b>Стамбул, Турция</b>
+                    <p style="font-size:13px; color:var(--text-sec)">12–19 июня · 2 взрослых</p>
+                    <div class="total">49 800 ₽ за двоих</div>
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Имя и фамилия</label>
+                <input type="text" value="Анна Соколова">
+            </div>
+            <div class="field">
+                <label>Телефон</label>
+                <input type="tel" value="+7 916 204-18-32">
+            </div>
+            <div class="field">
+                <label>E-mail</label>
+                <input type="email" value="anna@mail.ru">
+            </div>
+
+            <h3 class="section">Способ оплаты</h3>
+            <div class="pay selected" onclick="pickPay(this)">
+                <span class="icon">💳</span>
+                <div style="flex:1"><b>Карта</b><br><span style="font-size:13px;color:var(--text-sec)">Visa • 4256</span></div>
+                <b style="color:var(--blue-dark)">49 800 ₽</b>
+            </div>
+            <div class="pay" onclick="pickPay(this)">
+                <span class="icon">📱</span>
+                <div style="flex:1"><b>СБП</b><br><span style="font-size:13px;color:var(--text-sec)">Оплата по QR-коду</span></div>
+            </div>
+
+            <div class="total-row"><span>Итого к оплате</span><b>49 800 ₽</b></div>
+            <button class="btn" onclick="alert('Оплата прошла успешно!')">🔒 Оплатить 49 800 ₽</button>
+        </section>
+
+        <!-- ЭКРАН: ИЗБРАННОЕ -->
+        <section id="scr-fav" class="screen">
+            <h3 class="section">Избранное</h3>
+            <div class="fav-grid">
+                <div class="fav">
+                    <!-- Фото: Бали -->
+                    <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&q=80" alt="Бали">
+                    <div class="cap">Бали, Индонезия · 4.9</div>
+                </div>
+                <div class="fav">
+                    <!-- Фото: Париж -->
+                    <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&q=80" alt="Париж">
+                    <div class="cap">Париж, Франция · 4.8</div>
+                </div>
+                <div class="fav">
+                    <!-- Фото: Тбилиси -->
+                    <img src="https://images.unsplash.com/photo-1581375229371-d4ba6a80fa72?w=600&q=80" alt="Тбилиси">
+                    <div class="cap">Тбилиси, Грузия · 4.7</div>
+                </div>
+                <div class="fav">
+                    <!-- Фото: Венеция -->
+                    <img src="https://images.unsplash.com/photo-1514890547506-d0c0f8c9b37f?w=600&q=80" alt="Венеция">
+                    <div class="cap">Венеция, Италия · 4.8</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЭКРАН: ПРОФИЛЬ -->
+        <section id="scr-profile" class="screen">
+            <div class="profile-card">
+                <div class="avatar">👤</div>
+                <b style="font-size:18px">Анна Соколова</b>
+                <p style="font-size:13px; opacity:0.85">anna@mail.ru</p>
+                <div style="margin-top:12px; background:rgba(255,255,255,0.2); display:inline-block; padding:8px 16px; border-radius:20px; font-size:13px">
+                    💎 2 480 бонусов
+                </div>
+            </div>
+
+            <div class="stats">
+                <div class="stat"><b>3</b><span>поездки</span></div>
+                <div class="stat"><b>1 250</b><span>бонусов</span></div>
+                <div class="stat"><b>4.9</b><span>наша оценка</span></div>
+                <div class="stat"><b>12</b><span>в избранном</span></div>
+            </div>
+
+            <div class="menu-item"><span>📄</span><div class="t"><b>Мои бронирования</b><p>3 активных заказа</p></div><span>›</span></div>
+            <div class="menu-item"><span>🎁</span><div class="t"><b>Бонусы и акции</b><p>3 новых предложения</p></div><span>›</span></div>
+            <div class="menu-item"><span>📞</span><div class="t"><b>8 (800) 555-35-35</b><p>Звонок бесплатный</p></div><span>›</span></div>
+            <div class="menu-item"><span>❓</span><div class="t"><b>Помощь и поддержка</b><p>Чат с оператором</p></div><span>›</span></div>
+
+            <button class="btn btn-logout">← Выйти</button>
+        </section>
+
+    </div>
+
+    <!-- Нижнее меню -->
+    <nav class="tabbar">
+        <div class="tab active" onclick="go('home')"><span>🏠</span>Главная</div>
+        <div class="tab" onclick="go('book')"><span>🧳</span>Бронирование</div>
+        <div class="tab" onclick="go('fav')"><span>❤️</span>Избранное</div>
+        <div class="tab" onclick="go('profile')"><span>👤</span>Профиль</div>
+    </nav>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
